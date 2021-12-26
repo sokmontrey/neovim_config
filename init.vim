@@ -39,10 +39,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 "file explorer
-nnoremap <silent> ;f <Cmd>Telescope find_files<CR>
-nnoremap <silent> ;r <Cmd>Telescope live_grep<CR>
-nnoremap <silent> \\ <Cmd>Telescope buffers<CR>
-nnoremap <silent> ;; <Cmd>Telescope help_tags<CR>
+nnoremap <silent> sf <Cmd>Telescope find_files<CR>
+nnoremap <silent> sr <Cmd>Telescope live_grep<CR>
+nnoremap <silent> s\ <Cmd>Telescope buffers<CR>
+nnoremap <silent> s; <Cmd>Telescope help_tags<CR>
 
 lua <<EOF
 local actions = require('telescope.actions')
@@ -60,6 +60,9 @@ EOF
 
 nnoremap <silent>ss <C-w><C-w>
 "map <C-t><left> :tabp
+map gh :bp<CR>
+map gl :bn<CR>
+map gj :w <CR>:bd<CR>
 
 
 "i guess this is for prettier
