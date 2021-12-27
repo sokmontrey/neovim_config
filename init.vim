@@ -34,14 +34,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
 "file explorer
-nnoremap <silent> sf <Cmd>Telescope find_files<CR>
+nnoremap <silent> sf <Cmd>Telescope find_files previewer=false<CR>
 nnoremap <silent> sr <Cmd>Telescope live_grep<CR>
-nnoremap <silent> s\ <Cmd>Telescope buffers<CR>
+nnoremap <silent> sg <Cmd>Telescope buffers<CR>
 nnoremap <silent> s; <Cmd>Telescope help_tags<CR>
 
 lua <<EOF
@@ -49,6 +48,7 @@ local actions = require('telescope.actions')
 
 require('telescope').setup {
 	defaults = {
+		layout_strategy = 'center',
 		mappings = {
 			n = {
 				["q"] = actions.close
@@ -61,11 +61,9 @@ EOF
 nnoremap <silent>ss <C-w><C-w>
 "map <C-t><left> :tabp
 map gh :bp<CR>
-map gl :bn<CR>
-map gj :w <CR>:bd<CR>
+map gj :bn<CR>
+map gq :w <CR>:bd<CR>
 
-
-"i guess this is for prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
