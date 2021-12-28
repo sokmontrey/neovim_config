@@ -31,38 +31,31 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
 
-"file explorer
-nnoremap <silent> sf <Cmd>Telescope find_files previewer=false<CR>
-nnoremap <silent> sr <Cmd>Telescope live_grep<CR>
-nnoremap <silent> sg <Cmd>Telescope buffers<CR>
-nnoremap <silent> s; <Cmd>Telescope help_tags<CR>
-
-lua <<EOF
-local actions = require('telescope.actions')
-
-require('telescope').setup {
-	defaults = {
-		layout_strategy = 'center',
-		mappings = {
-			n = {
-				["q"] = actions.close
-			},
-		}
-	}
-}
-EOF
-
 nnoremap <silent>ss <C-w><C-w>
-"map <C-t><left> :tabp
 map gh :bp<CR>
 map gj :bn<CR>
 map gq :w <CR>:bd<CR>
+
+nnoremap <silent> ;; <Cmd>Telescope find_files theme=dropdown previewer=false<CR>
+nnoremap <silent> ;\ <Cmd>Telescope buffers theme=dropdown previewer=false<CR>
+
+nnoremap <silent> \\ :<C-u>NvimTreeToggle<CR>
+lua << EOF
+require('telescope').setup{
+	defaults = {
+		layout_strategy = 'center',
+		}
+}
+require('nvim-tree').setup{}
+EOF
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
@@ -85,3 +78,4 @@ let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
 let g:airline_right_sep = ''
+
