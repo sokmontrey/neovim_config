@@ -37,6 +37,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 
+Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 nnoremap <silent>ss <C-w><C-w>
