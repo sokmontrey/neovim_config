@@ -40,6 +40,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
