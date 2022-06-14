@@ -39,8 +39,11 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+autocmd VimEnter * :vsplit
 
 nnoremap <silent>ss <C-w><C-w>
 map gh :bp<CR>
@@ -49,8 +52,8 @@ map gq :w <CR>:bd<CR>
 
 nnoremap <silent> ;; <Cmd>Telescope find_files theme=dropdown previewer=false<CR>
 nnoremap <silent> ;\ <Cmd>Telescope buffers theme=dropdown previewer=false<CR>
-
 nnoremap <silent> \\ :<C-u>NvimTreeToggle<CR>
+
 lua << EOF
 require('telescope').setup{
 	defaults = {
@@ -72,6 +75,7 @@ let g:coc_global_extensions = [
   \ ]
 
 "vim airline
+let g:airline_theme='luna'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#formatter = 'default'
@@ -81,4 +85,5 @@ let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
 let g:airline_right_sep = ''
+
 
