@@ -22,6 +22,7 @@ Plug 'cohama/lexima.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 
 Plug 'github/copilot.vim'
 
@@ -83,8 +84,13 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let g:airline_left_sep = '»'
-let g:airline_left_sep = ''
-let g:airline_right_sep = '«'
-let g:airline_right_sep = ''
+"let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+"let g:airline_right_sep = ''
 
-
+let g:airline#extensions#clock#auto = 0
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['clock', g:airline_symbols.space, g:airline_section_a])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
