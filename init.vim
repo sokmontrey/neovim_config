@@ -10,12 +10,18 @@ set smartindent
 set mouse=a
 set number
 set background=dark
-let g:neosolarized_termtrans=1
-runtime ./plugged/NeoSolarized/colors/NeoSolarized.vim
+runtime ./plugged/gruvbox/colors/gruvbox.vim
+let g:airline_theme='wombat'
+
+"let g:neosolarized_termtrans=1
+"runtime ./plugged/NeoSolarized/colors/NeoSolarized.vim
+"let g:airline_theme='luna'
 
 call plug#begin()
 
 Plug 'iCyMind/NeoSolarized'
+Plug 'morhetz/gruvbox'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'cohama/lexima.vim'
@@ -44,8 +50,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
-
-autocmd VimEnter * :vsplit
 
 nnoremap <silent>ss <C-w><C-w>
 map gh :bp<CR>
@@ -77,17 +81,14 @@ let g:coc_global_extensions = [
   \ ]
 
 "vim airline
-let g:airline_theme='luna'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = 'fancy'
-let g:airline_left_sep = '»'
-"let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-"let g:airline_right_sep = ''
+"let g:airline_powerline_fonts = 1
+"let g:Powerline_symbols = 'fancy'
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
 
 let g:airline#extensions#clock#auto = 0
 function! AirlineInit()
